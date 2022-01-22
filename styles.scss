@@ -1,0 +1,168 @@
+* {
+
+    padding: 0;
+    margin: 0;
+}
+
+html {
+
+    height: 100%;
+}
+
+body {
+    background: rgb(238,49,114);
+    background: linear-gradient(135deg, rgba(238,49,114,1) 0%, rgba(16,121,209,1) 82%);
+
+    height: 100%;
+
+    font-family:Helvetica, sans-serif;
+}
+
+.header-container {
+
+    display: flex;
+    justify-content: center;
+
+    header {
+        
+        width: 60%;
+        padding: 3vh 0px;
+        
+        display: flex;
+        justify-content: center;
+        
+        border-bottom: 2px solid #fff;  
+        
+        margin-bottom: 5vh;
+
+        h1 {
+
+            color: #fff;
+
+            user-select: none;
+        }
+    }
+}
+
+form {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 0px 0px 5vh 0px;
+
+    .input-container {
+
+        display: flex;
+        flex-direction: column;
+
+        width: 20vw;
+
+        margin-bottom: 2vh;
+        
+        label {
+
+            color: #fff;
+            
+            margin-bottom: 0.5vh;
+        }
+
+        input {
+
+            border: none;
+            border-bottom: 1px solid #fff;
+            
+            background: none;
+            outline: none;
+
+            color: #fff;
+
+            &::placeholder {
+
+                color: rgba(255, 255, 255, 0.685);
+            }
+
+        }
+
+    }
+
+    button {
+
+        width: 20vw;
+        height: 5vh;
+        
+        box-sizing: border-box;
+
+        border: none;
+        border: 2px solid rgba(255, 255, 255, 0.699);
+        border-radius: 15px;
+
+        font-weight: bold;
+        color: #fff;
+
+        background: rgb(255, 255, 255, 0.1);
+
+        transition: 0.3s ease-in-out;
+
+        user-select: none;
+
+        &:hover {
+
+            background: rgb(255, 255, 255, 0.4);
+            
+            transition: 0.3s ease-in-out;
+        }
+
+        &:disabled {
+
+            opacity: 20%;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+
+                background: rgb(255, 255, 255, 0.1);
+            }
+        }
+    }
+}
+
+.counter-element-container {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    #counter-element {
+        
+        color: #fff;
+        font-weight: bold;
+        font-size: 45pt;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .header-container {
+
+        header {
+
+            width: 100%;
+        }
+    }
+
+    form {
+
+        .input-container {
+
+            width: 80vw;
+        }
+
+        button {
+
+            width: 80vw;
+        }
+    }
+}

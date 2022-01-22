@@ -1,4 +1,4 @@
-function counter(number, seconds, e) {
+function counter(number, seconds, e, button) {
     
     e.preventDefault()
 
@@ -6,16 +6,15 @@ function counter(number, seconds, e) {
 
     const counterElement = document.getElementById('counter-element')
     let counterNumber = 0
-    counterElement.innerText = counterNumber
 
-    const button = document.getElementById("form-button")
-    
+    button.disabled = true
+
     function setTimeOutFunction() {
 
-        counterElement.innerText = counterNumber
         counterNumber++
+        counterElement.innerText = counterNumber
         
-        if (counterNumber <= number) {
+        if (counterNumber < number) {
             
             button.disabled = true
             setTimeout(setTimeOutFunction, seconds)
@@ -37,14 +36,20 @@ window.onload = () => {
     const counterElement = document.getElementById('counter-element')
     
     counterElement.innerText = 0
-
+    
     const buttonFunction = (e) => {
 
         const formElement = document.getElementById('form')
-        const thingToCount = formElement.children[1].value
-        const seconds = formElement.children[3].value
+        const thingToCount = formElement.children[0].children[1].value
+        const seconds = formElement.children[1].children[1].value
 
-        counter(thingToCount, seconds, e)
+        if (!thingToCount || !seconds) {
+
+            alert('Fill all inputs!')
+            return
+        }
+
+        counter(thingToCount, seconds, e, button)
     }
 
     button.addEventListener("click", buttonFunction)
